@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* ******************************************************************************** */
+/*  I'll be NET yokogaki
+/*  作成：I'll be NET（http://illbenet.jp/）
+/* ******************************************************************************** */
+#honbun{margin: 0 auto; width: 90%;}
+#honbun_prev, #honbun_next{display: none;}
+@media (max-width: 480px) {
+	#honbun {margin: 0;	width: 100%;}
+}
+p {
+	margin: 0 0 1em 0;
+}

@@ -1,0 +1,254 @@
+@charset "utf-8";
+/* ******************************************************************************** */
+/*  I'll be NET Novel CSS
+/*  作成：I'll be NET（http://illbenet.jp/）
+/* ******************************************************************************** */
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	/* カスタムプロパティ */
+/*	--default-value-fontFamily: 'Noto Serif JP', Georgia, "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;*/
+	--default-input-value-fontFamily: 'serif';/*serif*/
+	--default-input-value-fontSize: 'large';/*1.0em*/
+	--default-input-value-color: 'black';/*white*/
+	--default-input-value-writingDirection: 'horizontal';/*vertical*/
+
+	--default-LchColorWheel-wheelDiameter:60px;
+	--default-LchColorWheel-wheelThickness:6px;
+	--default-LchColorWheel-handleDiameter:4px;
+
+	--input-value-fontFamily-serif: 'Noto Serif JP', Georgia, "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+	--input-value-fontFamily-gothic: 'Noto Sans JP',BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+	--input-value-fontSize-small:1.0em; /* スペースやクォートがあると動作しない！ */
+	--input-value-fontSize-medium:1.4em; /* スペースやクォートがあると動作しない！ */
+	--input-value-fontSize-large:1.8em; /* スペースやクォートがあると動作しない！ */
+	--input-value-color-white: 'white';
+	--input-value-color-black: 'black';
+	--input-value-writingDirection-vertical: 'vertical';
+	--input-value-writingDirection-horizontal: 'horizontal';
+
+	--setting-display: none; /* none, block, inline, ... */
+	--setting-color-bg: #FFFFFF; /* ビューア設定したときの背景色 */
+	--setting-color-fg: #000000; /* ビューア設定したときの文字色 */
+	--setting-color-bg-hover: #AAAAAA; /* ビューア設定ラジオボタンをホバーしたときの背景色 */
+	--setting-color-fg-hover: #FF0000; /* ビューア設定ラジオボタンをホバーしたときの文字色 */
+	--setting-color-bg-checked: #000000; /* ビューア設定ラジオボタン選択時の背景色 */
+	--setting-color-fg-checked: #FFFFFF; /* ビューア設定ラジオボタン選択時の文字色 */
+/*	--setting-color-hover-fg: var(--setting-color-fg);*/ /* ビューア設定したときの背景色 */
+
+	--honbun-color-bg-default: #FFFFFF; /* 本文の背景色（デフォルト。固定値。本当はreadonlyにしたい） */
+	--honbun-color-bg: #FFFFFF; /* 本文の背景色 */
+	--honbun-color-fg: #000000; /* 本文の文字色 */
+	--honbun-fontSize: var(--input-value-fontSize-midium);
+	--honbun-fontFamily: var(--input-value-fontSize-midium);
+	--honbun-writingDirection: var(--input-value-fontSize-midium);
+	background: var(--setting-color-bg);
+	color: var(--setting-color-fg);
+}
+
+/* 各種切り替えボタン
+/* -------------------------------------------------------------------------------- */
+div.dropdown-btn {
+	position: fixed; /* 位置固定 */
+	right:0; /* 右寄せ */
+    display: var(--setting-display); /* 表示・非表示の切替 */
+/*	float: right;*/
+	background: var(--setting-color-bg);
+	color: var(--setting-color-fg);
+/*	opacity: 0.7;*/
+/*	height: var(--default-LchColorWheel-wheelDiameter);*/
+}
+/* 設定メニュー表示・非表示 */
+.dropdown-btn .dropdown{
+    display: none;
+	background: var(--setting-color-bg);
+	color: var(--setting-color-fg);
+}
+.dropdown-btn:hover .dropdown{
+    display: inline;
+/*    display: flex;*/
+/*    display: block;*/
+	background: var(--setting-color-bg);
+	color: var(--setting-color-fg);
+}
+input[type=radio] {
+	display: none; /* ラジオボタンを非表示にする */
+}
+input[type=color] {
+	background: var(--setting-color-bg);
+}
+input + label {
+	background: var(--setting-color-bg);
+	color: var(--setting-color-fg);
+	border-style: solid;
+	border-color: var(--setting-color-fg);
+	cursor: pointer;
+	font-size: calc(var(--default-LchColorWheel-wheelDiameter) - 13px);
+	padding: 0 0px;
+	/*
+	text-align:center;
+	vertical-align: middle;
+	display: table-cell;
+	*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+input + label:hover {
+/*	background: var(--setting-color-bg);*/
+	background: var(--setting-color-bg-hover);
+	color: var(--setting-color-fg-hover);
+}
+input:checked + label {
+/*	background: var(--setting-color-bg);*/
+	background: var(--setting-color-bg-checked);
+	color: var(--setting-color-fg-checked);
+	/*
+	background: var(--setting-color-bg);
+	color: var(--setting-color-fg);
+	*/
+}
+/*label:first-child {*/
+/*ul label:nth-child(2) {*/
+div.dropdown-btn ul li:first-child label {
+	-moz-border-radius: 10px 0 0 10px;
+	-webkit-border-radius: 10px 0 0 10px;
+	border-radius: 10px 0 0 10px;
+}
+/*ul label:last-child {*/
+div.dropdown-btn ul li:last-child label {
+	border-left: 0;
+	-moz-border-radius: 0 10px 10px 0;
+	-webkit-border-radius: 0 10px 10px 0;
+	border-radius: 0 10px 10px 0;
+}
+div.dropdown-btn ul{
+	float: right;
+	font-size: 1.0em;
+	list-style:none;
+/*	font-size:0;*/
+}
+div.dropdown-btn ul li{
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+	font-size: calc(var(--default-LchColorWheel-wheelDiameter) - 16px);
+}
+/*
+div.dropdown-btn ul li label {
+	padding: 0 4px;
+}
+*/
+
+
+
+
+
+
+#switchTateyoko li:first-child, #switchFont li:first-child, #switchFontSize li:first-child, #switchColor li:first-child{
+	-moz-border-radius: 10px 0 0 10px;
+	-webkit-border-radius: 10px 0 0 10px;
+	border-radius: 10px 0 0 10px;
+}
+#switchTateyoko li:last-child, #switchFont li:last-child, #switchFontSize li:last-child, #switchColor li:last-child{
+	border-left: 0;
+	-moz-border-radius: 0 10px 10px 0;
+	-webkit-border-radius: 0 10px 10px 0;
+	border-radius: 0 10px 10px 0;
+}
+
+#novel_buttons{font-size: 1rem;}
+#switchTateyoko, #switchFont, #switchFontSize, #switchColor{margin: 0px; float: right; font-size: 1.0em;}
+#switchTateyoko li, #switchFont li, #switchFontSize li, #switchColor li{
+	list-style: none;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	padding: 0 4px;
+	border: 1px solid #828282;
+	background: #eee;
+	color: #828282;
+	display: block;
+	height: 20px;
+	cursor: pointer;
+}
+#switchTateyoko li.current, #switchFont li.current, #switchFontSize li.current, #switchColor li.current{
+	background: #828282 !important;
+	color: #fff;
+}
+#switchTateyoko li:hover, #switchFont li:hover, #switchFontSize li:hover, #switchColor li:hover{background: #ccc;}
+#switchTateyoko li:first-child, #switchFont li:first-child, #switchFontSize li:first-child, #switchColor li:first-child{
+	-moz-border-radius: 10px 0 0 10px;
+	-webkit-border-radius: 10px 0 0 10px;
+	border-radius: 10px 0 0 10px;
+}
+#switchTateyoko li:last-child, #switchFont li:last-child, #switchFontSize li:last-child, #switchColor li:last-child{
+	border-left: 0;
+	-moz-border-radius: 0 10px 10px 0;
+	-webkit-border-radius: 0 10px 10px 0;
+	border-radius: 0 10px 10px 0;
+}
+#switchTateyoko img{width: 20px;}
+/* -------------------------------------------------------------------------------- */
+/* 小説ブロック                                                                     */
+/* -------------------------------------------------------------------------------- */
+/*
+#novel{clear: both;}
+#honbun{padding: 30px 0;}
+*/
+#novel {
+	clear: both;
+}
+#honbun {
+	padding: 0;
+	letter-spacing: 0.1em;
+	line-height: 1.5em;
+	outline: none; /* フォーカス時の枠線を消す */
+
+/*	font-size: var(--honbun-fontSize);*/
+	background: var(--honbun-color-bg);
+	color: var(--honbun-color-fg);
+	/*background: var(--honbun-color-bg);*/
+/*    mix-blend-mode: difference;
+	color: white;
+	background: black;*/
+/*	color: var(--honbun-color-fg);*/
+}
+
+/*line-height*/
+/* -------------------------------------------------------------------------------- */
+/* 本文用クラス                                                                     */
+/* -------------------------------------------------------------------------------- */
+
+.small{font-size: 1em !important;}
+.middle{font-size: 1.4em !important;}
+.large{font-size: 1.8em !important;}
+
+
+/* フォントの種類 */
+.serif{font-family: 'Noto Serif JP', Georgia, "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif !important;}
+.gothic{font-family: 'Noto Sans JP',BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !important;}
+
+/*
+.black {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+.white {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+*/
+ruby rt {
+	font-family:Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif !important;
+}
+
+@media (max-width: 480px) {
+	#novel_buttons{display: none;}
+}
+
+

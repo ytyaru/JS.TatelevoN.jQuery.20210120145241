@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* ************************************************************************* */
+/* 縦書きにする。
+/* ************************************************************************* */
+/* ******************************************************************************** */
+/* 小説ブロック
+/* -------------------------------------------------------------------------------- */
+/*
+#novel{overflow:hidden;	position: relative;}
+#novel {
+	margin: 0px;
+	padding: 0px;
+}
+*/
+p {
+	margin: 0 1em;
+}
+#honbun{
+	height: 100vh;
+	overflow: auto;
+/*	white-space:nowrap;
+	overflow: scroll;*/
+
+	margin: 0 auto;
+	width: 100%;
+	writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	/writing-mode: tb-rl;
+	_writing-mode: tb-rl;
+	-ms-writing-mode: tb-rl;            /* IE用      */
+	-moz-writing-mode: vertical-rl;     /* firefox用 */
+	-webkit-writing-mode: vertical-rl;  /* chrome用  */
+	-o-writing-mode: vertical-rl;       /* opera用   */
+}
+
+/* ページめくりボタン
+/* -------------------------------------------------------------------------------- */
+#honbun_prev, #honbun_next{display: none;}
+/*
+#honbun_prev, #honbun_next{
+	position: absolute;
+	top: calc(50% - 25px);
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border: 0;
+	opacity: 0.5;
+	color: #222;
+	background: transparent;
+	font-size: 30px;
+}
+#honbun_prev{right: 0;}
+#honbun_prev:hover, #honbun_next:hover{opacity: 1; cursor: pointer;}
+.opacity03{opacity: 0.2;}
+*/

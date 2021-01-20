@@ -1,0 +1,7 @@
+@charset "utf-8";
+select {
+	-webkit-appearance: none;
+	appearance: none;
+	padding: 0;
+	margin: 0;
+}
